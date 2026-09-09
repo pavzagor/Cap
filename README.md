@@ -24,3 +24,16 @@ Actual old/new React components, real ASR output, sentence grouping, retained sp
 The comparison uses mocked storage/auth hooks. It is not a deployed Cap share page, does not exercise production storage or authentication, and does not demonstrate a backend edit save. The full local share page could not load because MySQL on 127.0.0.1:3306 was unavailable. No additional server or database was started.
 
 Separate local checks cover original cue IDs when editing, live/translated content, timestamped copying, overlapping cues, pauses, and incomplete sentences. The follow-up's scoped suite passed 86 tests, with Biome and TypeScript validation reported in the PR.
+
+## Review follow-up: Unicode sentence endings
+
+Source commit: `decfd40ecf8a86e4581165f51f74a7e37d6ca86c`. Addresses [Greptile's Arabic question-mark finding](https://github.com/CapSoftware/Cap/pull/2259#discussion_r3969737886).
+
+The limited punctuation list merged adjacent Arabic questions. The fix uses Unicode `Sentence_Terminal`, which also covers Hindi danda, while retaining the existing abbreviation and ellipsis handling. Regression tests demonstrate failure before the fix and success afterwards for Arabic, quoted Arabic and Hindi. UI tests exercise original and translated Arabic views and verify the second question seeks to 2.125 seconds.
+
+- [Review-fix screenshot](unicode-review-fix.png)
+- [Review-fix walkthrough](unicode-review-fix.mp4), [original WebM](unicode-review-fix.webm)
+- [91-test validation log](unicode-tests.log)
+- [English output parity result](english-parity.json): the approved English example remains exactly unchanged at 12 fragments / 3 sentence rows.
+
+The added browser comparison uses the actual Transcript component with a **synthetic multilingual fixture**, not new ASR output. It compares `9a19908` against the fix and mocks storage/auth. TypeScript and scoped Biome checks passed after the fix.
