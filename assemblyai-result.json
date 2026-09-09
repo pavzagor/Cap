@@ -1,0 +1,1038 @@
+{
+  "id": "aec0ad46-9ea5-4cb5-a5c2-f1345f94b02d",
+  "status": "completed",
+  "speech_model_used": "universal-3-5-pro",
+  "language_code": "en_us",
+  "audio_duration": 29,
+  "text": "I believe that this nation should commit itself to achieving the goal before this decade is out of landing a man on the moon and returning him safely to the Earth. We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard. Because that goal will serve to organize and measure the best of our energies and skills.",
+  "words": [
+    {
+      "text": "I",
+      "start": 993,
+      "end": 1137,
+      "confidence": 0.9989742,
+      "speaker": "A"
+    },
+    {
+      "text": "believe",
+      "start": 1137,
+      "end": 1618,
+      "confidence": 0.9998778,
+      "speaker": "A"
+    },
+    {
+      "text": "that",
+      "start": 1618,
+      "end": 1730,
+      "confidence": 0.9965546,
+      "speaker": "A"
+    },
+    {
+      "text": "this",
+      "start": 1778,
+      "end": 1954,
+      "confidence": 0.9999291,
+      "speaker": "A"
+    },
+    {
+      "text": "nation",
+      "start": 2018,
+      "end": 2403,
+      "confidence": 0.9982256,
+      "speaker": "A"
+    },
+    {
+      "text": "should",
+      "start": 2499,
+      "end": 2643,
+      "confidence": 0.9999521,
+      "speaker": "A"
+    },
+    {
+      "text": "commit",
+      "start": 2675,
+      "end": 2932,
+      "confidence": 0.99995434,
+      "speaker": "A"
+    },
+    {
+      "text": "itself",
+      "start": 2932,
+      "end": 3316,
+      "confidence": 0.9999454,
+      "speaker": "A"
+    },
+    {
+      "text": "to",
+      "start": 3316,
+      "end": 4198,
+      "confidence": 0.9979189,
+      "speaker": "A"
+    },
+    {
+      "text": "achieving",
+      "start": 4198,
+      "end": 4678,
+      "confidence": 0.9998399,
+      "speaker": "A"
+    },
+    {
+      "text": "the",
+      "start": 4678,
+      "end": 4822,
+      "confidence": 0.9989718,
+      "speaker": "A"
+    },
+    {
+      "text": "goal",
+      "start": 4822,
+      "end": 4951,
+      "confidence": 0.9999691,
+      "speaker": "A"
+    },
+    {
+      "text": "before",
+      "start": 6024,
+      "end": 6441,
+      "confidence": 0.52698743,
+      "speaker": "A"
+    },
+    {
+      "text": "this",
+      "start": 6441,
+      "end": 6681,
+      "confidence": 0.9999702,
+      "speaker": "A"
+    },
+    {
+      "text": "decade",
+      "start": 6681,
+      "end": 7146,
+      "confidence": 0.9999976,
+      "speaker": "A"
+    },
+    {
+      "text": "is",
+      "start": 7146,
+      "end": 7306,
+      "confidence": 0.9999206,
+      "speaker": "A"
+    },
+    {
+      "text": "out",
+      "start": 7306,
+      "end": 7466,
+      "confidence": 0.99998176,
+      "speaker": "A"
+    },
+    {
+      "text": "of",
+      "start": 8267,
+      "end": 8364,
+      "confidence": 0.9163101,
+      "speaker": "A"
+    },
+    {
+      "text": "landing",
+      "start": 8364,
+      "end": 8812,
+      "confidence": 0.99998736,
+      "speaker": "A"
+    },
+    {
+      "text": "a",
+      "start": 8828,
+      "end": 8844,
+      "confidence": 0.9999331,
+      "speaker": "A"
+    },
+    {
+      "text": "man",
+      "start": 8844,
+      "end": 9229,
+      "confidence": 0.9997193,
+      "speaker": "A"
+    },
+    {
+      "text": "on",
+      "start": 9229,
+      "end": 9309,
+      "confidence": 0.99995625,
+      "speaker": "A"
+    },
+    {
+      "text": "the",
+      "start": 9309,
+      "end": 9341,
+      "confidence": 0.99997544,
+      "speaker": "A"
+    },
+    {
+      "text": "moon",
+      "start": 9341,
+      "end": 9870,
+      "confidence": 0.7927287,
+      "speaker": "A"
+    },
+    {
+      "text": "and",
+      "start": 9870,
+      "end": 9966,
+      "confidence": 0.9961463,
+      "speaker": "A"
+    },
+    {
+      "text": "returning",
+      "start": 9966,
+      "end": 10431,
+      "confidence": 0.99978596,
+      "speaker": "A"
+    },
+    {
+      "text": "him",
+      "start": 10431,
+      "end": 10607,
+      "confidence": 0.9999752,
+      "speaker": "A"
+    },
+    {
+      "text": "safely",
+      "start": 10639,
+      "end": 11296,
+      "confidence": 0.99976474,
+      "speaker": "A"
+    },
+    {
+      "text": "to",
+      "start": 11328,
+      "end": 11408,
+      "confidence": 0.99993634,
+      "speaker": "A"
+    },
+    {
+      "text": "the",
+      "start": 11472,
+      "end": 11568,
+      "confidence": 0.99911886,
+      "speaker": "A"
+    },
+    {
+      "text": "Earth.",
+      "start": 11568,
+      "end": 11857,
+      "confidence": 0.9702779,
+      "speaker": "A"
+    },
+    {
+      "text": "We",
+      "start": 12850,
+      "end": 13090,
+      "confidence": 0.9988361,
+      "speaker": "B"
+    },
+    {
+      "text": "choose",
+      "start": 13171,
+      "end": 13619,
+      "confidence": 0.99980897,
+      "speaker": "B"
+    },
+    {
+      "text": "to",
+      "start": 13651,
+      "end": 13795,
+      "confidence": 0.99996674,
+      "speaker": "B"
+    },
+    {
+      "text": "go",
+      "start": 13795,
+      "end": 13988,
+      "confidence": 0.99997795,
+      "speaker": "B"
+    },
+    {
+      "text": "to",
+      "start": 13988,
+      "end": 14068,
+      "confidence": 0.99997044,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 14116,
+      "end": 14228,
+      "confidence": 0.9999933,
+      "speaker": "B"
+    },
+    {
+      "text": "moon",
+      "start": 14228,
+      "end": 14693,
+      "confidence": 0.9998454,
+      "speaker": "B"
+    },
+    {
+      "text": "in",
+      "start": 14693,
+      "end": 14821,
+      "confidence": 0.9994186,
+      "speaker": "B"
+    },
+    {
+      "text": "this",
+      "start": 14853,
+      "end": 15093,
+      "confidence": 0.9999784,
+      "speaker": "B"
+    },
+    {
+      "text": "decade",
+      "start": 15093,
+      "end": 15638,
+      "confidence": 0.99999595,
+      "speaker": "B"
+    },
+    {
+      "text": "and",
+      "start": 15638,
+      "end": 15814,
+      "confidence": 0.98972845,
+      "speaker": "B"
+    },
+    {
+      "text": "do",
+      "start": 15814,
+      "end": 15975,
+      "confidence": 0.9895549,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 15975,
+      "end": 16119,
+      "confidence": 0.99902606,
+      "speaker": "B"
+    },
+    {
+      "text": "other",
+      "start": 16135,
+      "end": 16439,
+      "confidence": 0.9999672,
+      "speaker": "B"
+    },
+    {
+      "text": "things,",
+      "start": 16439,
+      "end": 16664,
+      "confidence": 0.9888615,
+      "speaker": "B"
+    },
+    {
+      "text": "not",
+      "start": 17256,
+      "end": 17513,
+      "confidence": 0.9999441,
+      "speaker": "B"
+    },
+    {
+      "text": "because",
+      "start": 17577,
+      "end": 17945,
+      "confidence": 0.99996614,
+      "speaker": "B"
+    },
+    {
+      "text": "they",
+      "start": 18122,
+      "end": 18218,
+      "confidence": 0.99996364,
+      "speaker": "B"
+    },
+    {
+      "text": "are",
+      "start": 18282,
+      "end": 18474,
+      "confidence": 0.99837935,
+      "speaker": "B"
+    },
+    {
+      "text": "easy,",
+      "start": 18474,
+      "end": 18907,
+      "confidence": 0.9994488,
+      "speaker": "B"
+    },
+    {
+      "text": "but",
+      "start": 19099,
+      "end": 19339,
+      "confidence": 0.9999262,
+      "speaker": "B"
+    },
+    {
+      "text": "because",
+      "start": 19339,
+      "end": 19772,
+      "confidence": 0.9999745,
+      "speaker": "B"
+    },
+    {
+      "text": "they",
+      "start": 19820,
+      "end": 19964,
+      "confidence": 0.99998593,
+      "speaker": "B"
+    },
+    {
+      "text": "are",
+      "start": 20044,
+      "end": 20125,
+      "confidence": 0.99934286,
+      "speaker": "B"
+    },
+    {
+      "text": "hard.",
+      "start": 20125,
+      "end": 20509,
+      "confidence": 0.8802893,
+      "speaker": "B"
+    },
+    {
+      "text": "Because",
+      "start": 21262,
+      "end": 21711,
+      "confidence": 0.99659663,
+      "speaker": "B"
+    },
+    {
+      "text": "that",
+      "start": 21823,
+      "end": 22127,
+      "confidence": 0.99987924,
+      "speaker": "B"
+    },
+    {
+      "text": "goal",
+      "start": 22127,
+      "end": 22272,
+      "confidence": 0.99993384,
+      "speaker": "B"
+    },
+    {
+      "text": "will",
+      "start": 23329,
+      "end": 23393,
+      "confidence": 0.99976355,
+      "speaker": "B"
+    },
+    {
+      "text": "serve",
+      "start": 23505,
+      "end": 23954,
+      "confidence": 0.9999554,
+      "speaker": "B"
+    },
+    {
+      "text": "to",
+      "start": 23970,
+      "end": 24098,
+      "confidence": 0.9999621,
+      "speaker": "B"
+    },
+    {
+      "text": "organize",
+      "start": 24130,
+      "end": 24835,
+      "confidence": 0.99868375,
+      "speaker": "B"
+    },
+    {
+      "text": "and",
+      "start": 24932,
+      "end": 25028,
+      "confidence": 0.99988544,
+      "speaker": "B"
+    },
+    {
+      "text": "measure",
+      "start": 25028,
+      "end": 25428,
+      "confidence": 0.99972516,
+      "speaker": "B"
+    },
+    {
+      "text": "the",
+      "start": 25428,
+      "end": 25653,
+      "confidence": 0.9999733,
+      "speaker": "B"
+    },
+    {
+      "text": "best",
+      "start": 25653,
+      "end": 26005,
+      "confidence": 0.9999597,
+      "speaker": "B"
+    },
+    {
+      "text": "of",
+      "start": 26694,
+      "end": 26726,
+      "confidence": 0.9999641,
+      "speaker": "B"
+    },
+    {
+      "text": "our",
+      "start": 26726,
+      "end": 26934,
+      "confidence": 0.99992526,
+      "speaker": "B"
+    },
+    {
+      "text": "energies",
+      "start": 26934,
+      "end": 27399,
+      "confidence": 0.9998727,
+      "speaker": "B"
+    },
+    {
+      "text": "and",
+      "start": 27415,
+      "end": 27575,
+      "confidence": 0.9999175,
+      "speaker": "B"
+    },
+    {
+      "text": "skills.",
+      "start": 27575,
+      "end": 27960,
+      "confidence": 0.95687824,
+      "speaker": "B"
+    }
+  ],
+  "utterances": [
+    {
+      "speaker": "A",
+      "text": "I believe that this nation should commit itself to achieving the goal before this decade is out of landing a man on the moon and returning him safely to the Earth.",
+      "confidence": 0.97420895,
+      "start": 993,
+      "end": 11857,
+      "words": [
+        {
+          "text": "I",
+          "start": 993,
+          "end": 1137,
+          "confidence": 0.9989742,
+          "speaker": "A"
+        },
+        {
+          "text": "believe",
+          "start": 1137,
+          "end": 1618,
+          "confidence": 0.9998778,
+          "speaker": "A"
+        },
+        {
+          "text": "that",
+          "start": 1618,
+          "end": 1730,
+          "confidence": 0.9965546,
+          "speaker": "A"
+        },
+        {
+          "text": "this",
+          "start": 1778,
+          "end": 1954,
+          "confidence": 0.9999291,
+          "speaker": "A"
+        },
+        {
+          "text": "nation",
+          "start": 2018,
+          "end": 2403,
+          "confidence": 0.9982256,
+          "speaker": "A"
+        },
+        {
+          "text": "should",
+          "start": 2499,
+          "end": 2643,
+          "confidence": 0.9999521,
+          "speaker": "A"
+        },
+        {
+          "text": "commit",
+          "start": 2675,
+          "end": 2932,
+          "confidence": 0.99995434,
+          "speaker": "A"
+        },
+        {
+          "text": "itself",
+          "start": 2932,
+          "end": 3316,
+          "confidence": 0.9999454,
+          "speaker": "A"
+        },
+        {
+          "text": "to",
+          "start": 3316,
+          "end": 4198,
+          "confidence": 0.9979189,
+          "speaker": "A"
+        },
+        {
+          "text": "achieving",
+          "start": 4198,
+          "end": 4678,
+          "confidence": 0.9998399,
+          "speaker": "A"
+        },
+        {
+          "text": "the",
+          "start": 4678,
+          "end": 4822,
+          "confidence": 0.9989718,
+          "speaker": "A"
+        },
+        {
+          "text": "goal",
+          "start": 4822,
+          "end": 4951,
+          "confidence": 0.9999691,
+          "speaker": "A"
+        },
+        {
+          "text": "before",
+          "start": 6024,
+          "end": 6441,
+          "confidence": 0.52698743,
+          "speaker": "A"
+        },
+        {
+          "text": "this",
+          "start": 6441,
+          "end": 6681,
+          "confidence": 0.9999702,
+          "speaker": "A"
+        },
+        {
+          "text": "decade",
+          "start": 6681,
+          "end": 7146,
+          "confidence": 0.9999976,
+          "speaker": "A"
+        },
+        {
+          "text": "is",
+          "start": 7146,
+          "end": 7306,
+          "confidence": 0.9999206,
+          "speaker": "A"
+        },
+        {
+          "text": "out",
+          "start": 7306,
+          "end": 7466,
+          "confidence": 0.99998176,
+          "speaker": "A"
+        },
+        {
+          "text": "of",
+          "start": 8267,
+          "end": 8364,
+          "confidence": 0.9163101,
+          "speaker": "A"
+        },
+        {
+          "text": "landing",
+          "start": 8364,
+          "end": 8812,
+          "confidence": 0.99998736,
+          "speaker": "A"
+        },
+        {
+          "text": "a",
+          "start": 8828,
+          "end": 8844,
+          "confidence": 0.9999331,
+          "speaker": "A"
+        },
+        {
+          "text": "man",
+          "start": 8844,
+          "end": 9229,
+          "confidence": 0.9997193,
+          "speaker": "A"
+        },
+        {
+          "text": "on",
+          "start": 9229,
+          "end": 9309,
+          "confidence": 0.99995625,
+          "speaker": "A"
+        },
+        {
+          "text": "the",
+          "start": 9309,
+          "end": 9341,
+          "confidence": 0.99997544,
+          "speaker": "A"
+        },
+        {
+          "text": "moon",
+          "start": 9341,
+          "end": 9870,
+          "confidence": 0.7927287,
+          "speaker": "A"
+        },
+        {
+          "text": "and",
+          "start": 9870,
+          "end": 9966,
+          "confidence": 0.9961463,
+          "speaker": "A"
+        },
+        {
+          "text": "returning",
+          "start": 9966,
+          "end": 10431,
+          "confidence": 0.99978596,
+          "speaker": "A"
+        },
+        {
+          "text": "him",
+          "start": 10431,
+          "end": 10607,
+          "confidence": 0.9999752,
+          "speaker": "A"
+        },
+        {
+          "text": "safely",
+          "start": 10639,
+          "end": 11296,
+          "confidence": 0.99976474,
+          "speaker": "A"
+        },
+        {
+          "text": "to",
+          "start": 11328,
+          "end": 11408,
+          "confidence": 0.99993634,
+          "speaker": "A"
+        },
+        {
+          "text": "the",
+          "start": 11472,
+          "end": 11568,
+          "confidence": 0.99911886,
+          "speaker": "A"
+        },
+        {
+          "text": "Earth.",
+          "start": 11568,
+          "end": 11857,
+          "confidence": 0.9702779,
+          "speaker": "A"
+        }
+      ]
+    },
+    {
+      "speaker": "B",
+      "text": "We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard. Because that goal will serve to organize and measure the best of our energies and skills.",
+      "confidence": 0.99505,
+      "start": 11857,
+      "end": 27960,
+      "words": [
+        {
+          "text": "We",
+          "start": 12850,
+          "end": 13090,
+          "confidence": 0.9988361,
+          "speaker": "B"
+        },
+        {
+          "text": "choose",
+          "start": 13171,
+          "end": 13619,
+          "confidence": 0.99980897,
+          "speaker": "B"
+        },
+        {
+          "text": "to",
+          "start": 13651,
+          "end": 13795,
+          "confidence": 0.99996674,
+          "speaker": "B"
+        },
+        {
+          "text": "go",
+          "start": 13795,
+          "end": 13988,
+          "confidence": 0.99997795,
+          "speaker": "B"
+        },
+        {
+          "text": "to",
+          "start": 13988,
+          "end": 14068,
+          "confidence": 0.99997044,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 14116,
+          "end": 14228,
+          "confidence": 0.9999933,
+          "speaker": "B"
+        },
+        {
+          "text": "moon",
+          "start": 14228,
+          "end": 14693,
+          "confidence": 0.9998454,
+          "speaker": "B"
+        },
+        {
+          "text": "in",
+          "start": 14693,
+          "end": 14821,
+          "confidence": 0.9994186,
+          "speaker": "B"
+        },
+        {
+          "text": "this",
+          "start": 14853,
+          "end": 15093,
+          "confidence": 0.9999784,
+          "speaker": "B"
+        },
+        {
+          "text": "decade",
+          "start": 15093,
+          "end": 15638,
+          "confidence": 0.99999595,
+          "speaker": "B"
+        },
+        {
+          "text": "and",
+          "start": 15638,
+          "end": 15814,
+          "confidence": 0.98972845,
+          "speaker": "B"
+        },
+        {
+          "text": "do",
+          "start": 15814,
+          "end": 15975,
+          "confidence": 0.9895549,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 15975,
+          "end": 16119,
+          "confidence": 0.99902606,
+          "speaker": "B"
+        },
+        {
+          "text": "other",
+          "start": 16135,
+          "end": 16439,
+          "confidence": 0.9999672,
+          "speaker": "B"
+        },
+        {
+          "text": "things,",
+          "start": 16439,
+          "end": 16664,
+          "confidence": 0.9888615,
+          "speaker": "B"
+        },
+        {
+          "text": "not",
+          "start": 17256,
+          "end": 17513,
+          "confidence": 0.9999441,
+          "speaker": "B"
+        },
+        {
+          "text": "because",
+          "start": 17577,
+          "end": 17945,
+          "confidence": 0.99996614,
+          "speaker": "B"
+        },
+        {
+          "text": "they",
+          "start": 18122,
+          "end": 18218,
+          "confidence": 0.99996364,
+          "speaker": "B"
+        },
+        {
+          "text": "are",
+          "start": 18282,
+          "end": 18474,
+          "confidence": 0.99837935,
+          "speaker": "B"
+        },
+        {
+          "text": "easy,",
+          "start": 18474,
+          "end": 18907,
+          "confidence": 0.9994488,
+          "speaker": "B"
+        },
+        {
+          "text": "but",
+          "start": 19099,
+          "end": 19339,
+          "confidence": 0.9999262,
+          "speaker": "B"
+        },
+        {
+          "text": "because",
+          "start": 19339,
+          "end": 19772,
+          "confidence": 0.9999745,
+          "speaker": "B"
+        },
+        {
+          "text": "they",
+          "start": 19820,
+          "end": 19964,
+          "confidence": 0.99998593,
+          "speaker": "B"
+        },
+        {
+          "text": "are",
+          "start": 20044,
+          "end": 20125,
+          "confidence": 0.99934286,
+          "speaker": "B"
+        },
+        {
+          "text": "hard.",
+          "start": 20125,
+          "end": 20509,
+          "confidence": 0.8802893,
+          "speaker": "B"
+        },
+        {
+          "text": "Because",
+          "start": 21262,
+          "end": 21711,
+          "confidence": 0.99659663,
+          "speaker": "B"
+        },
+        {
+          "text": "that",
+          "start": 21823,
+          "end": 22127,
+          "confidence": 0.99987924,
+          "speaker": "B"
+        },
+        {
+          "text": "goal",
+          "start": 22127,
+          "end": 22272,
+          "confidence": 0.99993384,
+          "speaker": "B"
+        },
+        {
+          "text": "will",
+          "start": 23329,
+          "end": 23393,
+          "confidence": 0.99976355,
+          "speaker": "B"
+        },
+        {
+          "text": "serve",
+          "start": 23505,
+          "end": 23954,
+          "confidence": 0.9999554,
+          "speaker": "B"
+        },
+        {
+          "text": "to",
+          "start": 23970,
+          "end": 24098,
+          "confidence": 0.9999621,
+          "speaker": "B"
+        },
+        {
+          "text": "organize",
+          "start": 24130,
+          "end": 24835,
+          "confidence": 0.99868375,
+          "speaker": "B"
+        },
+        {
+          "text": "and",
+          "start": 24932,
+          "end": 25028,
+          "confidence": 0.99988544,
+          "speaker": "B"
+        },
+        {
+          "text": "measure",
+          "start": 25028,
+          "end": 25428,
+          "confidence": 0.99972516,
+          "speaker": "B"
+        },
+        {
+          "text": "the",
+          "start": 25428,
+          "end": 25653,
+          "confidence": 0.9999733,
+          "speaker": "B"
+        },
+        {
+          "text": "best",
+          "start": 25653,
+          "end": 26005,
+          "confidence": 0.9999597,
+          "speaker": "B"
+        },
+        {
+          "text": "of",
+          "start": 26694,
+          "end": 26726,
+          "confidence": 0.9999641,
+          "speaker": "B"
+        },
+        {
+          "text": "our",
+          "start": 26726,
+          "end": 26934,
+          "confidence": 0.99992526,
+          "speaker": "B"
+        },
+        {
+          "text": "energies",
+          "start": 26934,
+          "end": 27399,
+          "confidence": 0.9998727,
+          "speaker": "B"
+        },
+        {
+          "text": "and",
+          "start": 27415,
+          "end": 27575,
+          "confidence": 0.9999175,
+          "speaker": "B"
+        },
+        {
+          "text": "skills.",
+          "start": 27575,
+          "end": 27960,
+          "confidence": 0.95687824,
+          "speaker": "B"
+        }
+      ]
+    }
+  ]
+}
