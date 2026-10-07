@@ -13,8 +13,8 @@ import { and, eq, isNull, sql } from "drizzle-orm";
 import { Either, Option, Schema } from "effect";
 import { isAiGenerationEnabledForUser } from "@/lib/ai-generation-entitlement";
 import {
-	ASSEMBLYAI_SPEECH_MODELS,
 	ASSEMBLYAI_SUPPORTED_LANGUAGES,
+	getAssemblyAISpeechModels,
 	getAssemblyAITranscriptionOptions,
 } from "@/lib/assemblyai";
 import {
@@ -676,7 +676,7 @@ async function promoteLiveTranscript(
 							serializeEditTranscript(
 								liveTranscriptToEditTranscript(
 									artifact,
-									ASSEMBLYAI_SPEECH_MODELS[0],
+									getAssemblyAISpeechModels()[0],
 								),
 							),
 							video.ownerId,

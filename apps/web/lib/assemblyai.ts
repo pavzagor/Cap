@@ -1,13 +1,25 @@
+import { serverEnv } from "@cap/env";
 import {
 	AI_GENERATION_LANGUAGE_AUTO,
 	type AiGenerationLanguage,
 	type AiGenerationLanguageCode,
 } from "@cap/web-domain";
 
-export const ASSEMBLYAI_SPEECH_MODELS = [
+export const DEFAULT_ASSEMBLYAI_SPEECH_MODELS = [
 	"universal-3-5-pro",
 	"universal-2",
 ] as const;
+
+export function getAssemblyAISpeechModels(): [string, ...string[]] {
+	const [primary, ...fallbacks] =
+		serverEnv()
+			.TRANSCRIPTION_MODEL?.split(",")
+			.map((model) => model.trim())
+			.filter(Boolean) ?? [];
+	return primary
+		? [primary, ...fallbacks]
+		: [...DEFAULT_ASSEMBLYAI_SPEECH_MODELS];
+}
 
 export const ASSEMBLYAI_SUPPORTED_LANGUAGES = [
 	"en",
@@ -41,7 +53,7 @@ export function getAssemblyAITranscriptionOptions(
 	language: AiGenerationLanguage,
 ) {
 	const baseOptions = {
-		speech_models: [...ASSEMBLYAI_SPEECH_MODELS],
+		speech_models: getAssemblyAISpeechModels(),
 		format_text: true,
 		punctuate: true,
 		// Verbatim words: the single transcription pass feeds both the word-level

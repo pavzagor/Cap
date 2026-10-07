@@ -96,6 +96,12 @@ function createServerEnv() {
 
 			/// AI providers
 			ASSEMBLY_API_KEY: z.string().optional().describe("Audio transcription"),
+			TRANSCRIPTION_MODEL: z
+				.string()
+				.optional()
+				.describe(
+					"AssemblyAI speech model for transcription, or a comma-separated fallback list. Defaults to 'universal-3-5-pro,universal-2'.",
+				),
 			ANTHROPIC_API_KEY: z.string().optional().describe("AI chat"),
 			OPENAI_API_KEY: z.string().optional().describe("AI summaries"),
 			GROQ_API_KEY: z.string().optional().describe("AI summaries"),
