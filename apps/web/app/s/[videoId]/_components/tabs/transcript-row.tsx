@@ -32,6 +32,11 @@ export const TranscriptRow = memo(function TranscriptRow({
 					{entry.timestamp}
 				</span>
 				<span className="min-w-0 flex-1 text-[13px] leading-[22px] text-gray-11">
+					{entry.speaker && (
+						<span className="block text-[11px] font-semibold text-gray-12">
+							Speaker {entry.speaker}
+						</span>
+					)}
 					{entry.text}
 				</span>
 			</button>

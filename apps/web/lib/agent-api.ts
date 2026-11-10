@@ -1,6 +1,11 @@
 import { createHash } from "node:crypto";
 import type { VideoMetadata } from "@cap/database/types";
 import type { Agent } from "@cap/web-domain";
+import {
+	decodeVttText,
+	formatVttCueText,
+	parseVttCueText,
+} from "@/lib/transcript-vtt";
 
 export type AgentCursor = {
 	updatedAt: string;
@@ -140,7 +145,7 @@ const parseVttTimingLine = (line: string) => {
 };
 
 const normalizeCueText = (lines: string[]) =>
-	stripVttCueTags(lines.join("\n")).trim();
+	decodeVttText(stripVttCueTags(lines.join("\n"))).trim();
 
 export const parseAgentVtt = (
 	vtt: string,
@@ -168,8 +173,9 @@ export const parseAgentVtt = (
 			if (cueIndex === lines.length - 1) index = cueIndex;
 		}
 
+		const { speaker } = parseVttCueText(textLines.join("\n"));
 		const text = normalizeCueText(textLines);
-		if (text) cues.push({ ...timing, text });
+		if (text) cues.push({ ...timing, text, ...(speaker ? { speaker } : {}) });
 	}
 
 	return cues;
@@ -196,7 +202,7 @@ export const renderAgentVtt = (
 		...cues.flatMap((cue, index) => [
 			String(index + 1),
 			`${formatVttTimestamp(cue.startMs)} --> ${formatVttTimestamp(cue.endMs)}`,
-			cue.text.replace(/\s+/g, " ").trim(),
+			formatVttCueText(cue.text, cue.speaker),
 			"",
 		]),
 	].join("\n");

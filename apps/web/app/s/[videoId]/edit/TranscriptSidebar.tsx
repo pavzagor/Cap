@@ -155,6 +155,11 @@ const TranscriptGroupRow = memo(function TranscriptGroupRow({
 				{formatClock(group.startMs / 1000)}
 			</button>
 			<p className="min-w-0 flex-1 select-none text-[13.5px] leading-[26px] text-gray-11">
+				{words[group.startIndex]?.speaker && (
+					<span className="block text-[11px] font-semibold text-gray-12">
+						Speaker {words[group.startIndex]?.speaker}
+					</span>
+				)}
 				{words
 					.slice(group.startIndex, group.endIndex + 1)
 					.map((word, groupWordIndex) => {

@@ -20,13 +20,14 @@ import {
 	SUPPORTED_LANGUAGES,
 } from "@/actions/videos/translation-languages";
 import { useCurrentUser } from "@/app/Layout/AuthContext";
+import { groupTranscriptSentences } from "@/lib/transcript-sentences";
 import { formatTranscriptAsParagraphs } from "@/lib/transcript-text";
 import { normalizeTranscriptCueText } from "@/lib/transcript-vtt";
 import type { VideoData } from "../../types";
 import { type CaptionLanguage, useCaptionContext } from "../CaptionContext";
 import type { TranscriptEntry } from "../utils/parse-transcript-vtt";
 import { parseTranscriptVTT } from "../utils/parse-transcript-vtt";
-import { formatTime } from "../utils/transcript-utils";
+import { formatTranscriptAsVTT } from "../utils/transcript-utils";
 import { TranscriptEditor, TranscriptRow } from "./transcript-row";
 
 interface TranscriptProps {
@@ -49,6 +50,7 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 	const [transcriptData, setTranscriptData] = useState<TranscriptEntry[]>([]);
 	const [selectedEntry, setSelectedEntry] = useState<number | null>(null);
 	const [retryTriggered, setRetryTriggered] = useState(false);
+	const [isEditingTranscript, setIsEditingTranscript] = useState(false);
 	const [editingEntry, setEditingEntry] = useState<number | null>(null);
 	const [isSaving, setIsSaving] = useState(false);
 	const [isCopying, setIsCopying] = useState(false);
@@ -171,7 +173,9 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 		liveTranscript?.kind === "ready" && liveTranscript.state === "active";
 	const liveTranscriptData = useMemo(
 		() =>
-			liveTranscriptContent ? parseTranscriptVTT(liveTranscriptContent) : [],
+			liveTranscriptContent
+				? groupTranscriptSentences(parseTranscriptVTT(liveTranscriptContent))
+				: [],
 		[liveTranscriptContent],
 	);
 
@@ -223,6 +227,11 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 			setTranscriptData(parsed);
 		}
 	}, [captionContext.currentVttContent, transcriptContent, selectedLanguage]);
+
+	const sentenceData = useMemo(
+		() => groupTranscriptSentences(transcriptData),
+		[transcriptData],
+	);
 
 	const handleLanguageChange = async (language: CaptionLanguage) => {
 		setShowLanguageMenu(false);
@@ -326,20 +335,11 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 
 	const formatTranscriptForClipboard = (entries: TranscriptEntry[]): string => {
 		return entries
-			.map((entry) => `[${entry.timestamp}] ${entry.text}`)
+			.map(
+				(entry) =>
+					`[${entry.timestamp}] ${entry.speaker ? `Speaker ${entry.speaker}: ` : ""}${entry.text}`,
+			)
 			.join("\n\n");
-	};
-
-	const formatTranscriptAsVTT = (entries: TranscriptEntry[]): string => {
-		const vttHeader = "WEBVTT\n\n";
-
-		const vttEntries = entries.map((entry) => {
-			return `${entry.id}\n${formatTime(entry.startTime)} --> ${formatTime(
-				entry.endTime,
-			)}\n${entry.text}\n`;
-		});
-
-		return vttHeader + vttEntries.join("\n");
 	};
 
 	const copyTranscriptText = async (content: string) => {
@@ -366,7 +366,7 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 
 	const copyTimestampedTranscript = () => {
 		if (transcriptData.length === 0) return;
-		void copyTranscriptText(formatTranscriptForClipboard(transcriptData));
+		void copyTranscriptText(formatTranscriptForClipboard(sentenceData));
 	};
 
 	const triggerTranscriptDownload = (
@@ -414,6 +414,13 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 	};
 
 	const canEdit = user?.id === data.owner.id && selectedLanguage === "original";
+	const showEditingControls = canEdit && isEditingTranscript;
+	const displayedEntries = showEditingControls ? transcriptData : sentenceData;
+
+	const toggleEditingTranscript = () => {
+		setSelectedEntry(null);
+		setIsEditingTranscript(!isEditingTranscript);
+	};
 
 	const liveTranscriptView = showLiveTranscript ? (
 		<div className="flex flex-col h-full">
@@ -449,6 +456,11 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 									{entry.timestamp}
 								</span>
 								<span className="min-w-0 flex-1 text-[13px] leading-[22px] text-gray-11">
+									{entry.speaker && (
+										<span className="block text-[11px] font-semibold text-gray-12">
+											Speaker {entry.speaker}
+										</span>
+									)}
 									{entry.text}
 								</span>
 							</button>
@@ -614,7 +626,11 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 				<div className="relative" ref={languageMenuRef}>
 					<button
 						onClick={() => setShowLanguageMenu(!showLanguageMenu)}
-						disabled={isTranslating || transcriptData.length === 0}
+						disabled={
+							isTranslating ||
+							editingEntry !== null ||
+							transcriptData.length === 0
+						}
 						className="inline-flex h-7 items-center gap-1.5 rounded-full border border-gray-4 bg-gray-1 pl-2.5 pr-2 text-[11px] font-medium text-gray-11 transition hover:bg-gray-2 hover:text-gray-12 disabled:cursor-not-allowed disabled:opacity-50"
 						type="button"
 					>
@@ -670,6 +686,17 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 				</div>
 
 				<div className="flex items-center gap-1">
+					{canEdit && (
+						<button
+							type="button"
+							aria-pressed={showEditingControls}
+							disabled={editingEntry !== null || transcriptData.length === 0}
+							onClick={toggleEditingTranscript}
+							className="inline-flex min-h-11 items-center rounded-full px-2 text-[11px] font-medium text-gray-11 transition hover:bg-gray-3 disabled:opacity-50"
+						>
+							{showEditingControls ? "Done editing" : "Edit transcript"}
+						</button>
+					)}
 					<div className="relative" ref={copyMenuRef}>
 						<button
 							type="button"
@@ -716,7 +743,7 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 										With timestamps
 									</span>
 									<span className="mt-0.5 block text-[10px] text-gray-9">
-										[0:12] caption lines
+										[0:12] sentence timestamps
 									</span>
 								</button>
 							</div>
@@ -787,7 +814,7 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 					</div>
 				)}
 				<div className="px-3 py-3">
-					{transcriptData.map((entry) =>
+					{displayedEntries.map((entry) =>
 						editingEntry === entry.id ? (
 							<div
 								key={entry.id}
@@ -805,7 +832,7 @@ export const Transcript: React.FC<TranscriptProps> = ({ data, onSeek }) => {
 								key={entry.id}
 								entry={entry}
 								selected={selectedEntry === entry.id}
-								canEdit={canEdit}
+								canEdit={showEditingControls}
 								isSaving={isSaving}
 								onSelect={handleTranscriptClick}
 								onEdit={startEditing}

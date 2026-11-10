@@ -417,7 +417,7 @@ async function processNextLiveChunk(options: {
 			: ("auto" as AiGenerationLanguage);
 		const transcript = await client.transcripts.transcribe({
 			audio: audioBuffer,
-			...getAssemblyAITranscriptionOptions(language),
+			...getAssemblyAITranscriptionOptions(language, { speakerLabels: false }),
 			disfluencies: true,
 		});
 

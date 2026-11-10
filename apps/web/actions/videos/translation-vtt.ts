@@ -18,12 +18,16 @@ function timestampLines(block: string): string[] {
 	return block.split("\n").filter((line) => line.includes("-->"));
 }
 
+const VOICE_TAG = /<\/?v(?:[.\s][^>]*)?>/g;
+
 function hasCueText(block: string): boolean {
 	const lines = block.split("\n");
 	const timestampIndex = lines.findIndex((line) => line.includes("-->"));
 	return (
 		timestampIndex >= 0 &&
-		lines.slice(timestampIndex + 1).some((line) => line.trim().length > 0)
+		lines
+			.slice(timestampIndex + 1)
+			.some((line) => line.replace(VOICE_TAG, "").trim().length > 0)
 	);
 }
 
@@ -62,7 +66,8 @@ export function isCompleteTranslation(
 			(originalTimestamps.length > 0 &&
 				cueIdentifier(original) !== cueIdentifier(translated)) ||
 			(originalTimestamps.length === 0 && original !== translated) ||
-			(originalTimestamps.length > 0 && !hasCueText(translated))
+			(originalTimestamps.length > 0 && !hasCueText(translated)) ||
+			voiceTags(original) !== voiceTags(translated)
 		) {
 			return false;
 		}
@@ -70,6 +75,8 @@ export function isCompleteTranslation(
 
 	return true;
 }
+
+const voiceTags = (block: string) => (block.match(VOICE_TAG) ?? []).join("\n");
 
 export function splitTranslationChunks(source: string): string[] | null {
 	const blocks = splitVtt(source);

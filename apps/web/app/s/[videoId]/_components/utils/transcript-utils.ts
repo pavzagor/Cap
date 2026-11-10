@@ -1,17 +1,38 @@
 // Utility functions for transcript formatting
 
 import { formatTimestamp } from "@/lib/transcribe-utils";
+import { formatVttCueText } from "@/lib/transcript-vtt";
 
 export interface TranscriptEntry {
 	id: number;
 	timestamp: string | number; // Allow both string and number types
 	text: string;
 	startTime: number;
+	endTime?: number;
+	speaker?: string | null;
 }
 
 export const formatTime = (seconds: number): string => {
 	return formatTimestamp(seconds * 1000);
 };
+
+export const formatTranscriptAsVTT = (
+	entries: {
+		id: number;
+		startTime: number;
+		endTime: number;
+		text: string;
+		speaker?: string | null;
+	}[],
+): string =>
+	`WEBVTT\n\n${entries
+		.map(
+			(entry) =>
+				`${entry.id}\n${formatTime(entry.startTime)} --> ${formatTime(
+					entry.endTime,
+				)}\n${formatVttCueText(entry.text, entry.speaker)}\n`,
+		)
+		.join("\n")}`;
 
 export function formatChaptersAsVTT(
 	chapters: { title: string; start: number }[],
@@ -49,6 +70,9 @@ export const formatTranscriptForClipboard = (
 	entries: TranscriptEntry[],
 ): string => {
 	return entries
-		.map((entry) => `[${entry.timestamp}] ${entry.text}`)
+		.map(
+			(entry) =>
+				`[${entry.timestamp}] ${entry.speaker ? `Speaker ${entry.speaker}: ` : ""}${entry.text}`,
+		)
 		.join("\n\n");
 };

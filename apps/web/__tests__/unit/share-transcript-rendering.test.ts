@@ -138,6 +138,10 @@ async function render(seek = onSeek) {
 			),
 		);
 	});
+	const startEditing = Array.from(container.querySelectorAll("button")).find(
+		(button) => button.textContent === "Edit transcript",
+	);
+	if (startEditing) await act(async () => startEditing.click());
 }
 
 function cue(index: number) {

@@ -1,9 +1,12 @@
+import { decodeVttText, parseVttCueText } from "@/lib/transcript-vtt";
+
 export interface TranscriptEntry {
 	id: number;
 	timestamp: string;
 	text: string;
 	startTime: number;
 	endTime: number;
+	speaker?: string | null;
 }
 
 export const parseTranscriptVTT = (vttContent: string): TranscriptEntry[] => {
@@ -101,7 +104,22 @@ export const parseTranscriptVTT = (vttContent: string): TranscriptEntry[] => {
 					? trimmedLine.slice(1, -1)
 					: trimmedLine;
 
-			currentEntry.text = textContent;
+			if (/^<v[\s.]/.test(textContent)) {
+				const payload = [textContent];
+				while (
+					lines[i + 1]?.trim() &&
+					!lines[i + 1]?.includes("-->") &&
+					!payload.at(-1)?.includes("</v>")
+				) {
+					i++;
+					payload.push(lines[i]?.trim() ?? "");
+				}
+				const { text, speaker } = parseVttCueText(payload.join(" "));
+				currentEntry.text = text;
+				currentEntry.speaker = speaker;
+			} else {
+				currentEntry.text = decodeVttText(textContent);
+			}
 			if (
 				currentEntry.id !== undefined &&
 				currentEntry.timestamp &&

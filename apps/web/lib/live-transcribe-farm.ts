@@ -171,7 +171,9 @@ export async function buildLiveSessionState(options: {
 	return {
 		lastAudioSegmentIndex,
 		transcribedDurationMs: artifact?.transcribedDurationMs ?? 0,
-		transcriptionOptions: getAssemblyAITranscriptionOptions(language),
+		transcriptionOptions: getAssemblyAITranscriptionOptions(language, {
+			speakerLabels: false,
+		}),
 		urls: { manifest: manifest ?? "", audioInit: audioInit ?? "", segments },
 	};
 }

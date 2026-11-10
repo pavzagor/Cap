@@ -1,3 +1,60 @@
+export function escapeVttText(text: string): string {
+	return text
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;");
+}
+
+export function decodeVttText(text: string): string {
+	return text.replace(/&(amp|lt|gt|nbsp|lrm|rlm);/g, (entity) => {
+		switch (entity) {
+			case "&amp;":
+				return "&";
+			case "&lt;":
+				return "<";
+			case "&gt;":
+				return ">";
+			case "&nbsp;":
+				return "\u00a0";
+			case "&lrm;":
+				return "\u200e";
+			case "&rlm;":
+				return "\u200f";
+			default:
+				return entity;
+		}
+	});
+}
+
+export function parseVttCueText(payload: string): {
+	text: string;
+	speaker: string | null;
+} {
+	const voice = payload.match(/^\s*<v(?:\.[^\s>]*)?\s+([^>]+)>/);
+	const annotation = voice?.[1]?.trim();
+	return {
+		text: decodeVttText(
+			payload.replace(
+				/<(?:\/(?:c|i|b|u|ruby|rt|v|lang)|(?:c|i|b|u|ruby|rt|v|lang)(?:\.[^\s<>]+)*(?:[ \t]+[^<>]*)?|(?:\d{2,}:)?\d{2}:\d{2}\.\d{3})>/g,
+				"",
+			),
+		).trim(),
+		speaker: annotation
+			? decodeVttText(annotation).replace(/^Speaker /, "")
+			: null,
+	};
+}
+
+export function formatVttCueText(
+	text: string,
+	speaker?: string | null,
+): string {
+	const escapedText = escapeVttText(normalizeTranscriptCueText(text));
+	return speaker
+		? `<v Speaker ${escapeVttText(normalizeTranscriptCueText(speaker))}>${escapedText}</v>`
+		: escapedText;
+}
+
 export function normalizeTranscriptCueText(text: string): string {
 	return text.replace(/\s+/g, " ").trim();
 }
@@ -54,7 +111,13 @@ export function updateVttEntryText(
 			continue;
 		}
 
-		updatedLines.push(...cueLines.slice(0, timingIndex + 1), normalizedText);
+		const { speaker } = parseVttCueText(
+			cueLines.slice(timingIndex + 1).join(" "),
+		);
+		updatedLines.push(
+			...cueLines.slice(0, timingIndex + 1),
+			formatVttCueText(normalizedText, speaker),
+		);
 		if (cueEnd < lines.length) {
 			updatedLines.push(lines[cueEnd] ?? "");
 		}
@@ -66,4 +129,13 @@ export function updateVttEntryText(
 		content: updatedLines.join("\n"),
 		updated,
 	};
+}
+
+export interface TranscriptEntry {
+	id: number;
+	timestamp: string;
+	text: string;
+	startTime: number;
+	endTime: number;
+	speaker?: string | null;
 }
